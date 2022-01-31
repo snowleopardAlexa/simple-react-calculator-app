@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import './App.css';
 
-const ACTIONS = {
+export const ACTIONS = {
   ADD_DIGIT: 'add-digit',
   CHOOSE_OPERATION: 'choose-operation',
   CLEAR: 'clear',
@@ -10,11 +10,12 @@ const ACTIONS = {
 }
 
 function reducer(state, { type, payload}) {
+   // eslint-disable-next-line default-case
    switch(type) {
      case ACTIONS.ADD_DIGIT:
        return {
          ...state,
-         currentOperand: `${currentOperand}${payload.digit}`
+         currentOperand: `${currentOperand || ""}${payload.digit}`
        }
    }
 }
